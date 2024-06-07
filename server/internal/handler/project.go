@@ -123,6 +123,29 @@ func (h *projectHandler) AddProject(c *fiber.Ctx) error {
 	return c.JSON(projectResponse)
 }
 
+func (h *projectHandler) GetProjectsFirstFour(c *fiber.Ctx) error {
+	projectsResponse := make([]dtos.ProjectsFirstFourResponse, 0)
+
+	projects, err := h.projectSer.GetProjectsFirstFour()
+	if err != nil {
+		return err
+	}
+
+	for _, project := range projects {
+		projectsResponse = append(projectsResponse, dtos.ProjectsFirstFourResponse{
+			ProjectID:          project.ProjectID,
+			UserID:             project.UserID,
+			ProjectName:        project.ProjectName,
+			ProjectTag:         project.ProjectTag,
+			ProjectLanguage:    project.ProjectLanguage,
+			ProjectGitHubURL:   project.ProjectGitHubURL,
+			ProjectDescription: project.ProjectDescription,
+			ProjectPicture:     project.ProjectPicture,
+		})
+	}
+	return c.JSON(projectsResponse)
+}
+
 //****************************************************************************
 
 //func (h *wishlistHandler) GetWishlistsOfCurrentUser(c *fiber.Ctx) error {

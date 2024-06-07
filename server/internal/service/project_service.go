@@ -80,6 +80,30 @@ func (s projectService) CreateAddProject(userid int, req dtos.AddProjectRequest)
 	return project, nil
 }
 
+func (s projectService) GetProjectsFirstFour() ([]entities.Project, error) {
+	projects, err := s.projectRepo.GetProjectsFirstFour()
+	if err != nil {
+		log.Println(err)
+		return nil, err
+	}
+
+	projectResponses := []entities.Project{}
+	for _, project := range projects {
+		projectResponse := entities.Project{
+			ProjectID:          project.ProjectID,
+			UserID:             project.UserID,
+			ProjectName:        project.ProjectName,
+			ProjectTag:         project.ProjectTag,
+			ProjectLanguage:    project.ProjectLanguage,
+			ProjectGitHubURL:   project.ProjectGitHubURL,
+			ProjectDescription: project.ProjectDescription,
+			ProjectPicture:     project.ProjectPicture,
+		}
+		projectResponses = append(projectResponses, projectResponse)
+	}
+	return projectResponses, nil
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //func (s wishlistService) GetWishlistsOfCurrentUser(userid int) ([]entities.Wishlist, error) {

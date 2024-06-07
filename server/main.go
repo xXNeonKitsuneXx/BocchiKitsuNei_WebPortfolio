@@ -97,6 +97,7 @@ func main() {
 
 	app.Get("/Projects", projectHandler.GetProjects)
 	app.Get("/Project/:ProjectID", projectHandler.GetProjectById)
+	app.Get("/ProjectsFirstFour", projectHandler.GetProjectsFirstFour)
 
 	app.Post("/upload", storageHandler.UploadFile)
 

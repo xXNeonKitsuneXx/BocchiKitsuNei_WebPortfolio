@@ -11,6 +11,7 @@ type ProjectService interface {
 	///////////////////////////////////////////////////////////
 
 	CreateAddProject(int, dtos.AddProjectRequest) (*entities.Project, error)
+	GetProjectsFirstFour() ([]entities.Project, error)
 
 	///////////////////////////////////////////////////////////
 	//GetWishlistsOfCurrentUser(int) ([]entities.Wishlist, error)

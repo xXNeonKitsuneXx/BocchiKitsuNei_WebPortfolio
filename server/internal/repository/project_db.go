@@ -40,6 +40,15 @@ func (r projectRepositoryDB) PostAddProject(project *entities.Project) error {
 	return nil
 }
 
+func (r projectRepositoryDB) GetProjectsFirstFour() ([]entities.Project, error) {
+	projects := []entities.Project{}
+	result := r.db.Limit(4).Find(&projects)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return projects, nil
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //func (r wishlistRepositoryDB) GetAllWishlistsOfCurrentUserId(userid int) ([]entities.Wishlist, error) {
