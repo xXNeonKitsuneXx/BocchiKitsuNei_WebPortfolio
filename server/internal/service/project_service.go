@@ -104,159 +104,42 @@ func (s projectService) GetProjectsFirstFour() ([]entities.Project, error) {
 	return projectResponses, nil
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+func (s projectService) GetEditProject(projectid int) (*entities.Project, error) {
+	project, err := s.projectRepo.GetEditProject(projectid)
+	if err != nil {
+		log.Println(err)
+		return nil, err
+	}
 
-//func (s wishlistService) GetWishlistsOfCurrentUser(userid int) ([]entities.Wishlist, error) {
-//	wishlists, err := s.wishlistRepo.GetAllWishlistsOfCurrentUserId(userid)
-//	if err != nil {
-//		log.Println(err)
-//		return nil, err
-//	}
-//
-//	wishlistResponses := []entities.Wishlist{}
-//	for _, wishlist := range wishlists {
-//		wishlistResponse := entities.Wishlist{
-//			WishlistID:        wishlist.WishlistID,
-//			UserID:            wishlist.UserID,
-//			Itemname:          wishlist.Itemname,
-//			Price:             wishlist.Price,
-//			LinkURL:           wishlist.LinkURL,
-//			ItemPic:           wishlist.ItemPic,
-//			AlreadyBought:     wishlist.AlreadyBought,
-//			GrantedByUserID:   wishlist.GrantedByUserID,
-//			UsernameOfGranter: wishlist.UsernameOfGranter,
-//		}
-//		wishlistResponses = append(wishlistResponses, wishlistResponse)
-//	}
-//	return wishlistResponses, nil
-//}
-//
-//func (s wishlistService) GetFriendsWishlists(userid int) ([]entities.Wishlist, error) {
-//	wishlists, err := s.wishlistRepo.GetAllFriendsWishlists(userid)
-//	if err != nil {
-//		log.Println(err)
-//		return nil, err
-//	}
-//
-//	wishlistResponses := []entities.Wishlist{}
-//	for _, wishlist := range wishlists {
-//		wishlistResponse := entities.Wishlist{
-//			WishlistID:         wishlist.WishlistID,
-//			UserID:             wishlist.UserID,
-//			Itemname:           wishlist.Itemname,
-//			Price:              wishlist.Price,
-//			LinkURL:            wishlist.LinkURL,
-//			ItemPic:            wishlist.ItemPic,
-//			AlreadyBought:      wishlist.AlreadyBought,
-//			GrantedByUserID:    wishlist.GrantedByUserID,
-//			UsernameOfWishlist: wishlist.UsernameOfWishlist,
-//			UserPicOfWishlist:  wishlist.UserPicOfWishlist,
-//		}
-//		wishlistResponses = append(wishlistResponses, wishlistResponse)
-//	}
-//	return wishlistResponses, nil
-//}
-//
-//func (s wishlistService) GetWishlistDetails(wishlistid int) (*entities.Wishlist, error) {
-//	wishlist, err := s.wishlistRepo.GetWishlistDetailsByWishlistId(wishlistid)
-//	if err != nil {
-//		log.Println(err)
-//		return nil, err
-//	}
-//
-//	wishlistResponse := entities.Wishlist{
-//		WishlistID:      wishlist.WishlistID,
-//		UserID:          wishlist.UserID,
-//		Itemname:        wishlist.Itemname,
-//		Price:           wishlist.Price,
-//		LinkURL:         wishlist.LinkURL,
-//		ItemPic:         wishlist.ItemPic,
-//		AlreadyBought:   wishlist.AlreadyBought,
-//		GrantedByUserID: wishlist.GrantedByUserID,
-//	}
-//	return &wishlistResponse, nil
-//}
-//
-//func (s wishlistService) GetProfileFriendWishlists(currentUserID, wishlistOwnerID int) ([]entities.Wishlist, error) {
-//	wishlists, err := s.wishlistRepo.GetAllProfileFriendWishlists(currentUserID, wishlistOwnerID)
-//	if err != nil {
-//		log.Println(err)
-//		return nil, err
-//	}
-//
-//	wishlistResponses := []entities.Wishlist{}
-//	for _, wishlist := range wishlists {
-//		wishlistResponse := entities.Wishlist{
-//			WishlistID:         wishlist.WishlistID,
-//			UserID:             wishlist.UserID,
-//			Itemname:           wishlist.Itemname,
-//			Price:              wishlist.Price,
-//			LinkURL:            wishlist.LinkURL,
-//			ItemPic:            wishlist.ItemPic,
-//			AlreadyBought:      wishlist.AlreadyBought,
-//			GrantedByUserID:    wishlist.GrantedByUserID,
-//			UsernameOfWishlist: wishlist.UsernameOfWishlist,
-//			UserPicOfWishlist:  wishlist.UserPicOfWishlist,
-//		}
-//		wishlistResponses = append(wishlistResponses, wishlistResponse)
-//	}
-//	return wishlistResponses, nil
-//}
-//
-//func (s wishlistService) UpdateGrantForFriend(wishlistID, granterUserID int) (*entities.Wishlist, error) {
-//	wishlist, err := s.wishlistRepo.GetWishlistByWishlistId(wishlistID)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	bought := false
-//	wishlist.AlreadyBought = &bought
-//
-//	wishlist.GrantedByUserID = v.UintPtr(granterUserID)
-//
-//	err = s.wishlistRepo.UpdateGrantForFriend(wishlist)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	return wishlist, nil
-//}
-//
-//func (s wishlistService) UpdateReceiverGotIt(wishlistID, granterUserID int) (*entities.Wishlist, error) {
-//	wishlist, err := s.wishlistRepo.GetWishlistByWishlistId(wishlistID)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	bought := true
-//	wishlist.AlreadyBought = &bought
-//
-//	wishlist.GrantedByUserID = v.UintPtr(granterUserID)
-//
-//	err = s.wishlistRepo.UpdateReceiverGotIt(wishlist)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	return wishlist, nil
-//}
-//
-//func (s wishlistService) UpdateReceiverDidntGetIt(wishlistID, granterUserID int) (*entities.Wishlist, error) {
-//	wishlist, err := s.wishlistRepo.GetWishlistByWishlistId(wishlistID)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	var bought *bool = nil
-//	wishlist.AlreadyBought = bought
-//
-//	wishlist.GrantedByUserID = v.UintPtr(granterUserID)
-//
-//	err = s.wishlistRepo.UpdateReceiverDidntGetIt(wishlist)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	return wishlist, nil
-//}
-//
+	projectResponse := entities.Project{
+		ProjectID:          project.ProjectID,
+		UserID:             project.UserID,
+		ProjectName:        project.ProjectName,
+		ProjectTag:         project.ProjectTag,
+		ProjectLanguage:    project.ProjectLanguage,
+		ProjectGitHubURL:   project.ProjectGitHubURL,
+		ProjectDescription: project.ProjectDescription,
+		ProjectPicture:     project.ProjectPicture,
+	}
+	return &projectResponse, nil
+}
+
+func (s projectService) UpdateEditProject(projectid int, req dtos.EditProjectRequest) (*entities.Project, error) {
+	project := &entities.Project{
+		ProjectID:          v.UintPtr(projectid),
+		ProjectName:        req.ProjectName,
+		ProjectTag:         req.ProjectTag,
+		ProjectLanguage:    req.ProjectLanguage,
+		ProjectGitHubURL:   req.ProjectGitHubURL,
+		ProjectDescription: req.ProjectDescription,
+		ProjectPicture:     req.ProjectPicture,
+	}
+
+	err := s.projectRepo.UpdateEditProject(project)
+	if err != nil {
+		log.Println(err)
+		return nil, err
+	}
+
+	return project, nil
+}

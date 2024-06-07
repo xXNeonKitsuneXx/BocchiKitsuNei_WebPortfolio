@@ -91,17 +91,20 @@ func main() {
 	//Endpoint ###########################################################################
 
 	// Just endpoint of test
-	app.Get("/Users", userHandler.GetUsers)
-	app.Get("/User", userHandler.GetUserId) //#
-	app.Get("/User/:UserID", userHandler.GetUserParams)
+	app.Get("/GetUsers", userHandler.GetUsers)
+	app.Get("/GetUser", userHandler.GetUserId) //#
+	app.Get("/GetUserParams/:UserID", userHandler.GetUserParams)
 
-	app.Get("/Projects", projectHandler.GetProjects)
-	app.Get("/Project/:ProjectID", projectHandler.GetProjectById)
-	app.Get("/ProjectsFirstFour", projectHandler.GetProjectsFirstFour)
+	app.Get("/GetProjects", projectHandler.GetProjects)
+	app.Get("/GetProject/:ProjectID", projectHandler.GetProjectById)
+	app.Get("/GetProjectsFirstFour", projectHandler.GetProjectsFirstFour)
 
 	app.Post("/upload", storageHandler.UploadFile)
 
-	app.Post("/AddProject/:UserID", projectHandler.AddProject) //#
+	app.Post("/PostAddProject/:UserID", projectHandler.AddProject) //#
+
+	app.Get("/GetEditProject/:ProjectID", projectHandler.GetEditProject)
+	app.Patch("/PatchEditProject/:ProjectID", projectHandler.UpdateEditProject)
 
 	//////////////////////////////////////////////////////////////////////////////////////
 

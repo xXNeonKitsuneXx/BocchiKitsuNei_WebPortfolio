@@ -146,200 +146,52 @@ func (h *projectHandler) GetProjectsFirstFour(c *fiber.Ctx) error {
 	return c.JSON(projectsResponse)
 }
 
-//****************************************************************************
+func (h *projectHandler) GetEditProject(c *fiber.Ctx) error {
+	projectIDReceive, err := strconv.Atoi(c.Params("ProjectID"))
 
-//func (h *wishlistHandler) GetWishlistsOfCurrentUser(c *fiber.Ctx) error {
-//	// Extract the token from the request headers
-//	token := c.Get("Authorization")
-//
-//	// Check if the token is empty
-//	if token == "" {
-//		return errors.New("token is missing")
-//	}
-//
-//	// Extract the user ID from the token
-//	userID, err := utils.ExtractUserIDFromToken(strings.Replace(token, "Bearer ", "", 1), h.jwtSecret)
-//	if err != nil {
-//		return err
-//	}
-//
-//	wishlists, err := h.wishlistSer.GetWishlistsOfCurrentUser(userID)
-//	if err != nil {
-//		return err
-//	}
-//
-//	wishlistsResponse := make([]dtos.WishlistsOfCurrentUserResponse, 0)
-//	for _, wishlist := range wishlists {
-//		wishlistsResponse = append(wishlistsResponse, dtos.WishlistsOfCurrentUserResponse{
-//			WishlistID:        wishlist.WishlistID,
-//			UserID:            wishlist.UserID,
-//			Itemname:          wishlist.Itemname,
-//			Price:             wishlist.Price,
-//			LinkURL:           wishlist.LinkURL,
-//			ItemPic:           wishlist.ItemPic,
-//			AlreadyBought:     wishlist.AlreadyBought,
-//			GrantedByUserID:   wishlist.GrantedByUserID,
-//			UsernameOfGranter: wishlist.UsernameOfGranter,
-//		})
-//	}
-//	return c.JSON(wishlistsResponse)
-//}
-//
-//func (h *wishlistHandler) GetFriendsWishlists(c *fiber.Ctx) error {
-//
-//	// Extract the token from the request headers
-//	token := c.Get("Authorization")
-//
-//	// Check if the token is empty
-//	if token == "" {
-//		return errors.New("token is missing")
-//	}
-//
-//	// Extract the user ID from the token
-//	userIDExtract, err := utils.ExtractUserIDFromToken(strings.Replace(token, "Bearer ", "", 1), h.jwtSecret)
-//	if err != nil {
-//		return err
-//	}
-//
-//	wishlistsResponse := make([]dtos.FriendsWishlistsResponse, 0)
-//	wishlists, err := h.wishlistSer.GetFriendsWishlists(userIDExtract)
-//	if err != nil {
-//		return err
-//	}
-//
-//	for _, wishlist := range wishlists {
-//		wishlistsResponse = append(wishlistsResponse, dtos.FriendsWishlistsResponse{
-//			WishlistID:         wishlist.WishlistID,
-//			UserID:             wishlist.UserID,
-//			Itemname:           wishlist.Itemname,
-//			Price:              wishlist.Price,
-//			LinkURL:            wishlist.LinkURL,
-//			ItemPic:            wishlist.ItemPic,
-//			AlreadyBought:      wishlist.AlreadyBought,
-//			GrantedByUserID:    wishlist.GrantedByUserID,
-//			UsernameOfWishlist: wishlist.UsernameOfWishlist,
-//			UserPicOfWishlist:  wishlist.UserPicOfWishlist,
-//		})
-//	}
-//	return c.JSON(wishlistsResponse)
-//}
-//
-//func (h *wishlistHandler) GetWishlistDetails(c *fiber.Ctx) error {
-//	wishlistID := c.Params("wishlistID")
-//
-//	wishlistIDReceive, err := strconv.Atoi(wishlistID)
-//	if err != nil {
-//		return err
-//	}
-//
-//	wishlist, err := h.wishlistSer.GetWishlistDetails(wishlistIDReceive)
-//	if err != nil {
-//		return err
-//	}
-//
-//	wishlistResponse := dtos.WishlistDetailsResponse{
-//		WishlistID:      wishlist.WishlistID,
-//		UserID:          wishlist.UserID,
-//		Itemname:        wishlist.Itemname,
-//		Price:           wishlist.Price,
-//		LinkURL:         wishlist.LinkURL,
-//		ItemPic:         wishlist.ItemPic,
-//		AlreadyBought:   wishlist.AlreadyBought,
-//		GrantedByUserID: wishlist.GrantedByUserID,
-//	}
-//
-//	return c.JSON(wishlistResponse)
-//}
-//
-//func (h *wishlistHandler) GetProfileFriendWishlists(c *fiber.Ctx) error {
-//
-//	currentUserID, err := strconv.Atoi(c.Params("CurrentUserID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	wishlistOwnerID, err := strconv.Atoi(c.Params("WishlistOwnerID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	wishlistsResponse := make([]dtos.FriendsWishlistsResponse, 0)
-//	wishlists, err := h.wishlistSer.GetProfileFriendWishlists(currentUserID, wishlistOwnerID)
-//	if err != nil {
-//		return err
-//	}
-//
-//	for _, wishlist := range wishlists {
-//		wishlistsResponse = append(wishlistsResponse, dtos.FriendsWishlistsResponse{
-//			WishlistID:         wishlist.WishlistID,
-//			UserID:             wishlist.UserID,
-//			Itemname:           wishlist.Itemname,
-//			Price:              wishlist.Price,
-//			LinkURL:            wishlist.LinkURL,
-//			ItemPic:            wishlist.ItemPic,
-//			AlreadyBought:      wishlist.AlreadyBought,
-//			GrantedByUserID:    wishlist.GrantedByUserID,
-//			UsernameOfWishlist: wishlist.UsernameOfWishlist,
-//			UserPicOfWishlist:  wishlist.UserPicOfWishlist,
-//		})
-//	}
-//	return c.JSON(wishlistsResponse)
-//}
-//
-//func (h *wishlistHandler) UpdateGrantForFriend(c *fiber.Ctx) error {
-//	wishlistID, err := strconv.Atoi(c.Params("WishlistID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	granterUserID, err := strconv.Atoi(c.Params("GranterUserID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	_, err = h.wishlistSer.UpdateGrantForFriend(wishlistID, granterUserID)
-//	if err != nil {
-//		return err
-//	}
-//
-//	return c.JSON(fiber.Map{"message": "UpdateGrantForFriend successfully"})
-//}
-//
-//func (h *wishlistHandler) UpdateReceiverGotIt(c *fiber.Ctx) error {
-//	wishlistID, err := strconv.Atoi(c.Params("WishlistID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	granterUserID, err := strconv.Atoi(c.Params("GranterUserID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	_, err = h.wishlistSer.UpdateReceiverGotIt(wishlistID, granterUserID)
-//	if err != nil {
-//		return err
-//	}
-//
-//	return c.JSON(fiber.Map{"message": "UpdateReceiverGotIt successfully"})
-//}
-//
-//func (h *wishlistHandler) UpdateReceiverDidntGetIt(c *fiber.Ctx) error {
-//	wishlistID, err := strconv.Atoi(c.Params("WishlistID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	granterUserID, err := strconv.Atoi(c.Params("GranterUserID"))
-//	if err != nil {
-//		return err
-//	}
-//
-//	_, err = h.wishlistSer.UpdateReceiverDidntGetIt(wishlistID, granterUserID)
-//	if err != nil {
-//		return err
-//	}
-//
-//	return c.JSON(fiber.Map{"message": "UpdateReceiverDidntGetIt successfully"})
-//}
-//
+	project, err := h.projectSer.GetEditProject(projectIDReceive)
+	if err != nil {
+		return err
+	}
+
+	projectResponse := dtos.ProjectsResponse{
+		ProjectID:          project.ProjectID,
+		UserID:             project.UserID,
+		ProjectName:        project.ProjectName,
+		ProjectTag:         project.ProjectTag,
+		ProjectLanguage:    project.ProjectLanguage,
+		ProjectGitHubURL:   project.ProjectGitHubURL,
+		ProjectDescription: project.ProjectDescription,
+		ProjectPicture:     project.ProjectPicture,
+	}
+
+	return c.JSON(projectResponse)
+}
+
+func (h *projectHandler) UpdateEditProject(c *fiber.Ctx) error {
+	projectID, err := strconv.Atoi(c.Params("ProjectID"))
+	if err != nil {
+		return err
+	}
+
+	var req dtos.EditProjectRequest
+	if err := c.BodyParser(&req); err != nil {
+		return err
+	}
+
+	project, err := h.projectSer.UpdateEditProject(projectID, req)
+	if err != nil {
+		return err
+	}
+
+	projectResponse := dtos.EditProjectRequest{
+		ProjectName:        project.ProjectName,
+		ProjectTag:         project.ProjectTag,
+		ProjectLanguage:    project.ProjectLanguage,
+		ProjectGitHubURL:   project.ProjectGitHubURL,
+		ProjectDescription: project.ProjectDescription,
+		ProjectPicture:     project.ProjectPicture,
+	}
+
+	return c.JSON(projectResponse)
+}

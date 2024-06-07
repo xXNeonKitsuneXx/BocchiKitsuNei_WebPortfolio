@@ -13,13 +13,6 @@ type ProjectService interface {
 	CreateAddProject(int, dtos.AddProjectRequest) (*entities.Project, error)
 	GetProjectsFirstFour() ([]entities.Project, error)
 
-	///////////////////////////////////////////////////////////
-	//GetWishlistsOfCurrentUser(int) ([]entities.Wishlist, error)
-	//GetFriendsWishlists(int) ([]entities.Wishlist, error)
-	//GetWishlistDetails(int) (*entities.Wishlist, error)
-	//GetProfileFriendWishlists(int, int) ([]entities.Wishlist, error)
-	//
-	//UpdateGrantForFriend(int, int) (*entities.Wishlist, error)
-	//UpdateReceiverGotIt(int, int) (*entities.Wishlist, error)
-	//UpdateReceiverDidntGetIt(int, int) (*entities.Wishlist, error)
+	GetEditProject(int) (*entities.Project, error)
+	UpdateEditProject(int, dtos.EditProjectRequest) (*entities.Project, error)
 }
