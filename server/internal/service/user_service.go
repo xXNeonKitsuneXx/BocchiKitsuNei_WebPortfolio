@@ -52,6 +52,10 @@ func (s userService) GetUserId(userid int) (*entities.User, error) {
 		return nil, err
 	}
 
+	if user.UserID == nil && user.Username == nil && user.Password == nil {
+		return nil, fiber.NewError(fiber.StatusNotFound, "user data is not found")
+	}
+
 	userResponse := entities.User{
 		UserID:   user.UserID,
 		Username: user.Username,
@@ -67,6 +71,10 @@ func (s userService) GetUserParams(userid int) (*entities.User, error) {
 		return nil, err
 	}
 
+	if user.UserID == nil && user.Username == nil && user.Password == nil {
+		return nil, fiber.NewError(fiber.StatusNotFound, "user data is not found")
+	}
+
 	userResponse := entities.User{
 		UserID:   user.UserID,
 		Username: user.Username,
@@ -76,35 +84,6 @@ func (s userService) GetUserParams(userid int) (*entities.User, error) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-
-func (s userService) GetEditUserProfile(userid int) (*entities.User, error) {
-	user, err := s.userRepo.GetEditUserProfile(userid)
-	if err != nil {
-		log.Println(err)
-		return nil, err
-	}
-
-	userResponse := entities.User{
-		UserID:   user.UserID,
-		Username: user.Username,
-	}
-	return &userResponse, nil
-}
-
-func (s userService) UpdateEditUserProfile(userid int, req dtos.EditUserProfileRequest) (*entities.User, error) {
-	user := &entities.User{
-		UserID:   v.UintPtr(userid),
-		Username: req.Username,
-	}
-
-	err := s.userRepo.UpdateEditUserProfile(user)
-	if err != nil {
-		log.Println(err)
-		return nil, err
-	}
-
-	return user, nil
-}
 
 func (s userService) Register(request dtos.RegisterRequest) (*dtos.UserInfoResponse, error) {
 	hashedPassword, err := bcrypt.GenerateFromPassword(v.ByteSlice(request.Password), bcrypt.DefaultCost)

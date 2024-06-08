@@ -15,4 +15,6 @@ type ProjectService interface {
 
 	GetEditProject(int) (*entities.Project, error)
 	UpdateEditProject(int, dtos.EditProjectRequest) (*entities.Project, error)
+
+	DeleteProject(projectID int) error
 }

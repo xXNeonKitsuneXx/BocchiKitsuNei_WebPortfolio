@@ -5,6 +5,7 @@ import (
 	"bocchikitsunei_webportfolio/internal/service"
 	"github.com/gofiber/fiber/v2"
 	"strconv"
+	"strings"
 )
 
 type projectHandler struct {
@@ -194,4 +195,21 @@ func (h *projectHandler) UpdateEditProject(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(projectResponse)
+}
+
+func (h *projectHandler) DeleteProject(c *fiber.Ctx) error {
+	projectIDReceive, err := strconv.Atoi(c.Params("ProjectID"))
+	if err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "invalid projectID"})
+	}
+
+	err = h.projectSer.DeleteProject(projectIDReceive)
+	if err != nil {
+		if strings.Contains(err.Error(), "project not found") {
+			return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"message": "project not found"})
+		}
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": err.Error()}) //failed to delete project
+	}
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"message": "project deleted successfully"})
 }

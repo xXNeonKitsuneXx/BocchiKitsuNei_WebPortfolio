@@ -13,4 +13,6 @@ type ProjectRepository interface {
 
 	GetEditProject(int) (*entities.Project, error)
 	UpdateEditProject(project *entities.Project) error
+
+	DeleteProject(projectID int) error
 }

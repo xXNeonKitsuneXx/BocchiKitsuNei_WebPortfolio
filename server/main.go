@@ -90,7 +90,6 @@ func main() {
 
 	//Endpoint ###########################################################################
 
-	// Just endpoint of test
 	app.Get("/GetUsers", userHandler.GetUsers)
 	app.Get("/GetUser", userHandler.GetUserId) //#
 	app.Get("/GetUserParams/:UserID", userHandler.GetUserParams)
@@ -106,26 +105,12 @@ func main() {
 	app.Get("/GetEditProject/:ProjectID", projectHandler.GetEditProject)
 	app.Patch("/PatchEditProject/:ProjectID", projectHandler.UpdateEditProject)
 
+	app.Delete("/DeleteProject/:ProjectID", projectHandler.DeleteProject)
+
 	//////////////////////////////////////////////////////////////////////////////////////
 
-	// Project use these endpoints
 	app.Post("/Register", userHandler.Register)
 	app.Post("/Login", userHandler.Login)
-
-	app.Get("/GetEditUserProfile/:UserID", userHandler.GetEditUserProfile)
-	app.Patch("/UpdateEditUserProfile/:UserID", userHandler.UpdateEditUserProfile)
-
-	////////////
-
-	//app.Get("/GetWishlistsOfCurrentUser", wishlistHandler.GetWishlistsOfCurrentUser) //#
-	//
-	//app.Get("/GetFriendsWishlists", wishlistHandler.GetFriendsWishlists) //#
-	//app.Get("/GetWishlistDetails/:WishlistID", wishlistHandler.GetWishlistDetails)
-	//app.Get("/GetProfileFriendWishlists/:CurrentUserID/:WishlistOwnerID", wishlistHandler.GetProfileFriendWishlists)
-	//
-	//app.Put("/UpdateGrantForFriend/:WishlistID/:GranterUserID", wishlistHandler.UpdateGrantForFriend)
-	//app.Put("/UpdateReceiverGotIt/:WishlistID/:GranterUserID", wishlistHandler.UpdateReceiverGotIt)
-	//app.Put("/UpdateReceiverDidntGetIt/:WishlistID/:GranterUserID", wishlistHandler.UpdateReceiverDidntGetIt)
 
 	//#####################################################################################
 

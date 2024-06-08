@@ -43,24 +43,6 @@ func (r userRepositoryDB) GetUserByParams(userid int) (*entities.User, error) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-func (r userRepositoryDB) GetEditUserProfile(userid int) (*entities.User, error) {
-	users := entities.User{}
-	result := r.db.Where("user_id = ?", userid).Find(&users)
-	if result.Error != nil {
-		return nil, result.Error
-	}
-	return &users, nil
-}
-
-func (r userRepositoryDB) UpdateEditUserProfile(user *entities.User) error {
-	result := r.db.Updates(user)
-	if result.Error != nil {
-		return result.Error
-	}
-
-	return nil
-}
-
 func (r userRepositoryDB) CreateUser(user *entities.User) error {
 	result := r.db.Create(user)
 	if result.Error != nil {

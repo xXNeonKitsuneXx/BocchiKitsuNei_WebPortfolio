@@ -66,3 +66,12 @@ func (r projectRepositoryDB) UpdateEditProject(project *entities.Project) error 
 
 	return nil
 }
+
+func (r projectRepositoryDB) DeleteProject(projectid int) error {
+	projects := entities.Project{}
+	result := r.db.Where("project_id = ?", projectid).Unscoped().Delete(&projects)
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
+}

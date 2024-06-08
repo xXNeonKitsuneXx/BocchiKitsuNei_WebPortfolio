@@ -5,7 +5,9 @@ import (
 	"bocchikitsunei_webportfolio/internal/entities"
 	"bocchikitsunei_webportfolio/internal/repository"
 	"bocchikitsunei_webportfolio/internal/utils/v"
+	"github.com/gofiber/fiber/v2"
 	"log"
+	"strings"
 )
 
 type projectService struct {
@@ -46,6 +48,21 @@ func (s projectService) GetProjectId(projectid int) (*entities.Project, error) {
 		log.Println(err)
 		return nil, err
 	}
+
+	if *project == (entities.Project{}) {
+		return nil, fiber.NewError(fiber.StatusNotFound, "project doesn't exist")
+	}
+
+	//if project.ProjectID == nil &&
+	//	project.UserID == nil &&
+	//	project.ProjectName == nil &&
+	//	project.ProjectTag == nil &&
+	//	project.ProjectLanguage == nil &&
+	//	project.ProjectGitHubURL == nil &&
+	//	project.ProjectDescription == nil &&
+	//	project.ProjectPicture == nil {
+	//	return nil, fiber.NewError(fiber.StatusNotFound, "All project fields are nil")
+	//}
 
 	projectResponse := entities.Project{
 		ProjectID:          project.ProjectID,
@@ -111,6 +128,21 @@ func (s projectService) GetEditProject(projectid int) (*entities.Project, error)
 		return nil, err
 	}
 
+	if *project == (entities.Project{}) {
+		return nil, fiber.NewError(fiber.StatusNotFound, "project doesn't exist")
+	}
+
+	//if project.ProjectID == nil &&
+	//	project.UserID == nil &&
+	//	project.ProjectName == nil &&
+	//	project.ProjectTag == nil &&
+	//	project.ProjectLanguage == nil &&
+	//	project.ProjectGitHubURL == nil &&
+	//	project.ProjectDescription == nil &&
+	//	project.ProjectPicture == nil {
+	//	return nil, fiber.NewError(fiber.StatusNotFound, "All project fields are nil")
+	//}
+
 	projectResponse := entities.Project{
 		ProjectID:          project.ProjectID,
 		UserID:             project.UserID,
@@ -142,4 +174,21 @@ func (s projectService) UpdateEditProject(projectid int, req dtos.EditProjectReq
 	}
 
 	return project, nil
+}
+
+func (s projectService) DeleteProject(projectID int) error {
+	_, err := s.GetProjectId(projectID)
+	if err != nil {
+		if strings.Contains(err.Error(), "project doesn't exist") {
+			return fiber.NewError(fiber.StatusNotFound, "project not found")
+		}
+		return err
+	}
+
+	err = s.projectRepo.DeleteProject(projectID)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

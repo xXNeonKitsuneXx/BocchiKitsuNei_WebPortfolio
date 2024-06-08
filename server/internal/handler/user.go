@@ -84,45 +84,6 @@ func (h *userHandler) GetUserParams(c *fiber.Ctx) error {
 
 /////////////////////////////////////////////////////////////////////////
 
-func (h *userHandler) GetEditUserProfile(c *fiber.Ctx) error {
-	userIDReceive, err := strconv.Atoi(c.Params("UserID"))
-
-	user, err := h.userSer.GetEditUserProfile(userIDReceive)
-	if err != nil {
-		return err
-	}
-
-	userResponse := dtos.EditUserProfileResponse{
-		UserID:   user.UserID,
-		Username: user.Username,
-	}
-
-	return c.JSON(userResponse)
-}
-
-func (h *userHandler) UpdateEditUserProfile(c *fiber.Ctx) error {
-	userID, err := strconv.Atoi(c.Params("UserID"))
-	if err != nil {
-		return err
-	}
-
-	var req dtos.EditUserProfileRequest
-	if err := c.BodyParser(&req); err != nil {
-		return err
-	}
-
-	user, err := h.userSer.UpdateEditUserProfile(userID, req)
-	if err != nil {
-		return err
-	}
-
-	userResponse := dtos.EditUserProfileRequest{
-		Username: user.Username,
-	}
-
-	return c.JSON(userResponse)
-}
-
 func (h *userHandler) Register(c *fiber.Ctx) error {
 	var request dtos.RegisterRequest
 	if err := c.BodyParser(&request); err != nil {

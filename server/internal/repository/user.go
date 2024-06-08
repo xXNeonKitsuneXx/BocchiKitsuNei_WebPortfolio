@@ -9,9 +9,6 @@ type UserRepository interface {
 
 	////////////////////////////////////////////////////////////////////
 
-	GetEditUserProfile(int) (*entities.User, error)
-	UpdateEditUserProfile(user *entities.User) error
-
 	CreateUser(user *entities.User) error
 	GetUserByUsername(username string) (*entities.User, error)
 }
