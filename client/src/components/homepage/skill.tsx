@@ -48,17 +48,6 @@ export const Skill = () => {
                 <p className="my-4 text-black font-bold">React</p>
               </div>
               <div
-                className="shadow-md shadow-gray-400 bg-[#fff] rounded-2xl w-40 lg:w-60"
-                data-aos="fade-up"
-              >
-                <img
-                  className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/GitHub_Mark.png"
-                  alt="GitHub icon"
-                />
-                <p className="my-4 text-black font-bold">GitHub</p>
-              </div>
-              <div
                 className="shadow-md shadow-green-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
                 data-aos="fade-up"
               >
@@ -90,17 +79,6 @@ export const Skill = () => {
                   alt="Tailwind icon"
                 />
                 <p className="my-4 text-black font-bold">Tailwind</p>
-              </div>
-              <div
-                className="shadow-md shadow-red-600 bg-[#fff] rounded-2xl w-40 lg:w-60"
-                data-aos="fade-up"
-              >
-                <img
-                  className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/JLPT_N5.png"
-                  alt="JLPT icon"
-                />
-                <p className="my-4 text-black font-bold">JLPT N5</p>
               </div>
               <div
                 className="shadow-md shadow-blue-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
