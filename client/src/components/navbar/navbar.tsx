@@ -7,7 +7,7 @@ export const Navbar = () => {
       style={{ borderRadius: '9999px', width: 'max-content' }}
       data-aos="fade-down"
     >
-      <div className="flex justify-center">
+      <div className="flex justify-center px-4">
         <ul className="flex space-x-8 text-white">
           <li>
             <Button className="bg-black text-base font-bold hover:bg-gray-500">

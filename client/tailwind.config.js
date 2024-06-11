@@ -17,6 +17,10 @@ module.exports = {
       },
     },
     extend: {
+      lineClamp: {
+        7: '7',
+        8: '8',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

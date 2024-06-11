@@ -1,18 +1,20 @@
 import { FaFacebookSquare, FaInstagram, FaGithub, FaLinkedin} from 'react-icons/fa'
-import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
     <footer className="bg-black flex text-center justify-center text-white p-[rem3]">
       <div className="my-6">
-        <h3 className="font-bold text-4xl">BocchiKitsuNei</h3>
-        <ul className="flex justify-center my-[2rem] font-bold text-2xl">
-          <li className="hover:text-purple-500 px-5">
+        <h3 className="font-bold text-2xl md:text-3xl">BocchiKitsuNei</h3>
+        <ul className="flex justify-center my-3 font-bold text-2xl">
+          {/* <li className="hover:text-purple-500 px-5 text-xl md:text-2xl">
             <Link to="/">Home</Link>
           </li>
-          <li className="hover:text-purple-500 px-5">
+          <li className="hover:text-purple-500 px-5 text-xl md:text-2xl">
             <Link to="/project">Project</Link>
           </li>
+          <li className="hover:text-purple-500 px-5 text-xl md:text-2xl">
+            <Link to="/contact">Contact</Link>
+          </li> */}
         </ul>
 
         <ul className="grid grid-cols-4 items-center">
