@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -12,11 +13,25 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
-import { useState } from "react";
 
-export const Contact = () => {
-  const [copied, setCopied] = useState(false);
-  const { toast } = useToast();
+interface FormData {
+    name: string;
+    phone: string;
+    email: string;
+    message: string;
+}
+  
+  export const Contact = () => {
+    const [formData, setFormData] = useState<FormData>({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+    });
+      
+    const [errors, setErrors] = useState<Partial<FormData>>({});
+    const [copied, setCopied] = useState(false);
+    const { toast } = useToast();
 
   const copyToClipboard = () => {
     const email = "BocchiKitsuNei@gmail.com";
@@ -28,12 +43,44 @@ export const Contact = () => {
     });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone is required";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Invalid email address";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const isValid = validateForm();
+    if (isValid) {
+      // Handle form submission here
+      // For example, you can send the form data to your backend
+    }
+  };
+  
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+  
+
   return (
     <section className="flex justify-center items-center">
       <Navbar />
       <div className="mt-28 flex-col lg:flex-row flex justify-center items-center">
         <Card className="p-6 mb-4 lg:mr-8 w-96">
-          <CardContent className="">
+          <CardContent >
             <div className="space-y-8">
               <div className="space-y-2">
                 <h2 className="text-3xl font-semibold">Contact me</h2>
@@ -119,44 +166,71 @@ export const Contact = () => {
                   possible.
                 </p>
               </div>
-              <div className="space-y-4">
+              <form onSubmit={handleSubmit}>
+                <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label className="font-bold" htmlFor="first-name">Name</Label>
+                    <Label className="font-bold" htmlFor="name">
+                      Name<span className="text-purple-500">*</span>
+                    </Label>
                     <Input
                       id="name"
                       placeholder="Enter your name*"
+                      value={formData.name}
+                      onChange={handleChange}
                     />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm">{errors.name}</p>
+                    )}
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold" htmlFor="phoneNumbere">Phone</Label>
+                    <Label className="font-bold" htmlFor="phone">
+                      Phone<span className="text-purple-500">*</span>
+                    </Label>
                     <Input
-                      id="number"
+                      id="phone"
                       placeholder="Enter your phone*"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm">{errors.phone}</p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="font-bold" htmlFor="email">
+                      Email<span className="text-purple-500">*</span>
+                    </Label>
+                    <Input
+                      id="email"
+                      placeholder="Enter your email*"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm">{errors.email}</p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="font-bold" htmlFor="message">
+                      Message
+                    </Label>
+                    <Textarea
+                      id="message"
+                      placeholder="Enter your message"
+                      className="min-h-[100px]"
+                      value={formData.message}
+                      onChange={handleChange}
                     />
                   </div>
-                <div className="space-y-2">
-                  <Label className="font-bold" htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    placeholder="Enter your email*"
-                    type="email"
-                  />
+                  <Button
+                    type="submit"
+                    className="bg-purple-500 text-white hover:bg-purple-800"
+                  >
+                    Submit
+                  </Button>
                 </div>
-                <div className="space-y-2">
-                  <Label className="font-bold" htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Enter your message"
-                    className="min-h-[100px]"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="bg-purple-500 text-white hover:bg-purple-800"
-                >
-                  Submit
-                </Button>
-              </div>
+              </form>
             </div>
           </CardContent>
         </Card>
