@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 AOS.init();
 
 function App() {
-  return <AppRouter />;
+  return <AppRouter />
 }
 
 export default App;

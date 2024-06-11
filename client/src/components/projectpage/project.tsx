@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { FaGithub } from "react-icons/fa";
 import { Navbar } from "../navbar/navbar";
+import { LoadingSpinner } from "../loadingspinner/loadingspinner";
 
 interface Project {
   project_id: number;
@@ -24,13 +25,14 @@ const fetcher = (url: string): Promise<Project[]> =>
   fetch(url).then((res) => res.json());
 
 export const Project = () => {
-  const { data, error } = useSWR<Project[]>("/api/GetProjects", fetcher);
+  const { data, error, isLoading } = useSWR<Project[]>("/api/GetProjects", fetcher);
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
+  if (error) return <div className="flex justify-center items-center mt-16 text-red-500">failed to load</div>;
+  if (isLoading) return <div className="flex justify-center items-center mt-16"><LoadingSpinner/></div>;
+  if (!data) return <div className="flex justify-center items-center mt-16"><LoadingSpinner /></div>;
 
   const handleCardClick = (project: Project) => {
     setSelectedProject(project);
