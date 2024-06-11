@@ -10,12 +10,11 @@ import (
 
 type projectHandler struct {
 	projectSer service.ProjectService
-	jwtSecret  string
 	uploadSer  service.UploadService
 }
 
-func NewProjectHandler(projectSer service.ProjectService, jwtSecret string, uploadSer service.UploadService) projectHandler {
-	return projectHandler{projectSer: projectSer, jwtSecret: jwtSecret, uploadSer: uploadSer}
+func NewProjectHandler(projectSer service.ProjectService, uploadSer service.UploadService) projectHandler {
+	return projectHandler{projectSer: projectSer, uploadSer: uploadSer}
 }
 
 func (h *projectHandler) GetProjects(c *fiber.Ctx) error {

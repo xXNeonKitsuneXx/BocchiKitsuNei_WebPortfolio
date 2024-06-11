@@ -23,15 +23,6 @@ func (r userRepositoryDB) GetAllUser() ([]entities.User, error) {
 	return users, nil
 }
 
-func (r userRepositoryDB) GetUserById(userid int) (*entities.User, error) {
-	users := entities.User{}
-	result := r.db.Where("user_id = ?", userid).Find(&users)
-	if result.Error != nil {
-		return nil, result.Error
-	}
-	return &users, nil
-}
-
 func (r userRepositoryDB) GetUserByParams(userid int) (*entities.User, error) {
 	users := entities.User{}
 	result := r.db.Where("user_id = ?", userid).Find(&users)
@@ -39,23 +30,4 @@ func (r userRepositoryDB) GetUserByParams(userid int) (*entities.User, error) {
 		return nil, result.Error
 	}
 	return &users, nil
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-func (r userRepositoryDB) CreateUser(user *entities.User) error {
-	result := r.db.Create(user)
-	if result.Error != nil {
-		return result.Error
-	}
-	return nil
-}
-
-func (r userRepositoryDB) GetUserByUsername(username string) (*entities.User, error) {
-	var user entities.User
-	result := r.db.Where("username = ?", username).First(&user)
-	if result.Error != nil {
-		return nil, result.Error
-	}
-	return &user, nil
 }

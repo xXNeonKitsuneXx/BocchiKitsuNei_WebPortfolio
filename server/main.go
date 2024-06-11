@@ -21,7 +21,6 @@ import (
 	"gorm.io/gorm"
 )
 
-const jwtSecret = "BocchiKitsuNeiSecret"
 
 func main() {
 	initTimeZone()
@@ -66,39 +65,27 @@ func main() {
 	userRepositoryDB := repository.NewUserRepositoryDB(db)
 	projectRepositoryDB := repository.NewProjectRepositoryDB(db)
 
-	userService := service.NewUserService(userRepositoryDB, jwtSecret)
+	userService := service.NewUserService(userRepositoryDB)
 	projectService := service.NewProjectService(projectRepositoryDB)
 	uploadService := service.NewUploadService(minioClient)
 
-	userHandler := handler.NewUserHandler(userService, jwtSecret, uploadService)
-	projectHandler := handler.NewProjectHandler(projectService, jwtSecret, uploadService)
+	userHandler := handler.NewUserHandler(userService, uploadService)
+	projectHandler := handler.NewProjectHandler(projectService, uploadService)
 
 	app := fiber.New()
 
-	//app.Use(func(c *fiber.Ctx) error {
-	//	if c.Path() != "/Register" && c.Path() != "/Login" {
-	//		jwtMiddleware := jwtware.New(jwtware.Config{
-	//			SigningKey: jwtware.SigningKey{Key: []byte(jwtSecret)},
-	//			ErrorHandler: func(c *fiber.Ctx, err error) error {
-	//				return fiber.ErrUnauthorized
-	//			},
-	//		})
-	//		return jwtMiddleware(c)
-	//	}
-	//	return c.Next()
-	//})
 
 	//Endpoint ###########################################################################
+	
+	app.Post("/upload", storageHandler.UploadFile)
 
 	app.Get("/GetUsers", userHandler.GetUsers)
-	app.Get("/GetUser", userHandler.GetUserId) //#
 	app.Get("/GetUserParams/:UserID", userHandler.GetUserParams)
 
 	app.Get("/GetProjects", projectHandler.GetProjects)
 	app.Get("/GetProject/:ProjectID", projectHandler.GetProjectById)
 	app.Get("/GetProjectsFirstFour", projectHandler.GetProjectsFirstFour)
 
-	app.Post("/upload", storageHandler.UploadFile)
 
 	app.Post("/PostAddProject/:UserID", projectHandler.AddProject) //#
 
@@ -106,11 +93,6 @@ func main() {
 	app.Patch("/PatchEditProject/:ProjectID", projectHandler.UpdateEditProject)
 
 	app.Delete("/DeleteProject/:ProjectID", projectHandler.DeleteProject)
-
-	//////////////////////////////////////////////////////////////////////////////////////
-
-	app.Post("/Register", userHandler.Register)
-	app.Post("/Login", userHandler.Login)
 
 	//#####################################################################################
 
