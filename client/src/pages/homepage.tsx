@@ -5,7 +5,7 @@ import { Skill } from '@/components/homepage/skill';
 import { Project } from '@/components/homepage/project';
 import { Footer } from '@/components/footer/footer';
 
-export const Home = () => {
+export const HomePage = () => {
 
   return (
     <>

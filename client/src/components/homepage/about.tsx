@@ -24,7 +24,7 @@ export const About = () => {
                   </p>
                 </div>
                 <Button
-                  className="mt-2 md:mt-8 bg-purple-500 hover:bg-purple-800"
+                  className="mt-2 md:mt-4 bg-purple-500 hover:bg-purple-800"
                   data-aos="zoom-in-up"
                   onClick={handleDownloadResume}
                 >

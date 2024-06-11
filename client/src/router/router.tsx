@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "../pages/home";
-import { Project } from "../pages/project";
-import { Error } from "../pages/error";
+import { HomePage } from "../pages/homepage";
+import { ProjectPage } from "../pages/projectpage";
+import { ErrorPage } from "../pages/errorpage";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="bg-white">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Project />} />
-          <Route path="/*" element={<Error />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/project" element={<ProjectPage />} />
+          <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </div>
     </BrowserRouter>
