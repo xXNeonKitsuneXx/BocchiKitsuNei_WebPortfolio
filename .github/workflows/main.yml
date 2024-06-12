@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+
+name: main
+jobs:
+  deploytovps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sshing
+      - uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USER}}
+          key: ${{secrets.KEY}}
+          port: ${{secrets.PORT}}
+          command_timeout: 20m
+          script: ${{secrets.CMD}}
