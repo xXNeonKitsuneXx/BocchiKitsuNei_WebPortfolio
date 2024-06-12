@@ -73,7 +73,7 @@ export const Contact = () => {
           });
 
       try {
-        const response = await Axios.post("/api/SendMail", {
+        const response = await Axios.post("/SendMail", {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
