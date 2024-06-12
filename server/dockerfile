@@ -1,0 +1,6 @@
+FROM golang
+
+COPY . .
+
+EXPOSE 8888
+ENTRYPOINT [ "go", "run", "main.go" ]
