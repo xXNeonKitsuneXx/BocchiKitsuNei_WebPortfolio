@@ -31,7 +31,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="hhttps://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/javascript.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/javascript.png"
                   alt="JS icon"
                 />
                 <p className="my-4 text-black font-bold">JavaScript</p>
