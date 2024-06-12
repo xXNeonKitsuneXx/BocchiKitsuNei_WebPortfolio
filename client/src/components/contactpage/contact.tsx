@@ -71,9 +71,9 @@ export const Contact = () => {
             phone: formData.phone,
             msg: formData.message,
           });
-          
+
       try {
-        const response = await axios.post("/SendMail", {
+        const response = await axios.post("/api/SendMail", {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
