@@ -34,7 +34,7 @@ export const About = () => {
             </ul>
           </div>
           <img
-            src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/Picture_Nei_Swimmer_3.jpg"
+            src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Picture_Nei_Swimmer_3.jpg"
             alt="Picture_Nei_Swimmer"
             className="w-[550px] h-[310px] md:w-[400px] md:h-[] mx-auto xl:aspect-square aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             data-aos="flip-left"
