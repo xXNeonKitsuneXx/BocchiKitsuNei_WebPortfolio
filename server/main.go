@@ -62,6 +62,9 @@ func main() {
 	uploadSer := service.NewUploadService(minioClient)
 	storageHandler := handler.NewStorageHandler(uploadSer)
 
+	emailService := service.NewEmailService("BocchiKitsuNei@gmail.com", "ngre hovf xnww vbkr", "BocchiKitsuNei@gmail.com", "smtp.gmail.com")
+	emailHandler := handler.NewEmailHandler(emailService)
+
 	userRepositoryDB := repository.NewUserRepositoryDB(db)
 	projectRepositoryDB := repository.NewProjectRepositoryDB(db)
 
@@ -72,11 +75,13 @@ func main() {
 	userHandler := handler.NewUserHandler(userService, uploadService)
 	projectHandler := handler.NewProjectHandler(projectService, uploadService)
 
+	
+
 	app := fiber.New()
 
 
 	//Endpoint ###########################################################################
-	
+
 	app.Post("/upload", storageHandler.UploadFile)
 
 	app.Get("/GetUsers", userHandler.GetUsers)
@@ -94,7 +99,10 @@ func main() {
 
 	app.Delete("/DeleteProject/:ProjectID", projectHandler.DeleteProject)
 
+	app.Post("/SendMail", emailHandler.SendMail)
+
 	//#####################################################################################
+
 
 	log.Printf("BocchiKitsuNei WebPortfolio run at port:  %v", viper.GetInt("app.port"))
 	app.Listen(fmt.Sprintf(":%v", viper.GetInt("app.port")))
@@ -122,3 +130,4 @@ func initTimeZone() {
 
 	time.Local = ict
 }
+
