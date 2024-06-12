@@ -81,12 +81,17 @@ func main() {
 	app := fiber.New()
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "https://www.bocchikitsunei.com, https://minio.bocchikitsunei.com, http://localhost:8888",
+		AllowOrigins: "https://www.bocchikitsunei.com, https://minio.bocchikitsunei.com, http://localhost:8698",
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
 
 	//Endpoint ###########################################################################
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		log.Println("Endpoint /a hit")
+		return c.SendString("Hello, World!")
+	})
 
 	app.Post("/upload", storageHandler.UploadFile)
 

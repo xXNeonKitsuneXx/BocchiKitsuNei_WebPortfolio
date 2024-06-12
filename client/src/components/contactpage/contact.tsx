@@ -65,6 +65,13 @@ export const Contact = () => {
     e.preventDefault();
     const isValid = validateForm();
     if (isValid) {
+        console.log({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            msg: formData.message,
+          });
+          
       try {
         const response = await axios.post("/SendMail", {
           name: formData.name,
