@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { FaGithub } from "react-icons/fa";
 import { LoadingSpinner } from "../loadingspinner/loadingspinner";
+import { Axios } from "@/AxiosInstance";
 
 interface Project {
   project_id: number;
@@ -21,21 +22,36 @@ interface Project {
 }
 
 const fetcher = (url: string): Promise<Project[]> =>
-  fetch(url).then((res) => res.json());
+  Axios.get(url).then((res) => res.data);
 
 export const HomeProject = () => {
   const { data, error, isLoading } = useSWR<Project[]>(
-    "/api/GetProjectsFirstFour",
+    "/GetProjectsFirstFour",
     fetcher
   );
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  
-  if (error) return <div className="flex justify-center items-center mt-16 text-red-500">failed to load</div>;
-  if (isLoading) return <div className="flex justify-center items-center mt-16"><LoadingSpinner/></div>;
-  if (!data) return <div className="flex justify-center items-center mt-16"><LoadingSpinner /></div>;
-  
+
+  if (error)
+    return (
+      <div className="flex justify-center items-center mt-16 text-red-500">
+        failed to load
+      </div>
+    );
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center mt-16">
+        <LoadingSpinner />
+      </div>
+    );
+  if (!data)
+    return (
+      <div className="flex justify-center items-center mt-16">
+        <LoadingSpinner />
+      </div>
+    );
+
   const handleCardClick = (project: Project) => {
     setSelectedProject(project);
     setIsOpen(true);

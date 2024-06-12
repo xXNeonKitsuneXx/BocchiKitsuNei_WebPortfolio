@@ -10,6 +10,7 @@ import {
 import { FaGithub } from "react-icons/fa";
 import { Navbar } from "../navbar/navbar";
 import { LoadingSpinner } from "../loadingspinner/loadingspinner";
+import { Axios } from "@/AxiosInstance";
 
 interface Project {
   project_id: number;
@@ -22,17 +23,32 @@ interface Project {
 }
 
 const fetcher = (url: string): Promise<Project[]> =>
-  fetch(url).then((res) => res.json());
+  Axios.get(url).then((res) => res.data);
 
 export const Project = () => {
-  const { data, error, isLoading } = useSWR<Project[]>("/api/GetProjects", fetcher);
+  const { data, error, isLoading } = useSWR<Project[]>("/GetProjects", fetcher);
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  if (error) return <div className="flex justify-center items-center mt-16 text-red-500">failed to load</div>;
-  if (isLoading) return <div className="flex justify-center items-center mt-16"><LoadingSpinner/></div>;
-  if (!data) return <div className="flex justify-center items-center mt-16"><LoadingSpinner /></div>;
+  if (error)
+    return (
+      <div className="flex justify-center items-center mt-16 text-red-500">
+        failed to load
+      </div>
+    );
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center mt-16">
+        <LoadingSpinner />
+      </div>
+    );
+  if (!data)
+    return (
+      <div className="flex justify-center items-center mt-16">
+        <LoadingSpinner />
+      </div>
+    );
 
   const handleCardClick = (project: Project) => {
     setSelectedProject(project);
@@ -69,10 +85,7 @@ export const Project = () => {
             open-source. You are welcome to use them in anyway you like.
           </h4>
         </div>
-        <div
-          className="w-full pt-6 bg-white"
-          data-aos="fade-up"
-        >
+        <div className="w-full pt-6 bg-white" data-aos="fade-up">
           <div className="px-4 flex justify-center">
             <div className="grid gap-8 mb-8 lg:grid-cols-3">
               {data.map((project) => (
