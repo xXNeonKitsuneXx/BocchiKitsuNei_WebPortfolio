@@ -70,7 +70,12 @@ export const Contact = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            msg: formData.message,
+          }),
         });
 
         if (response.ok) {
@@ -263,5 +268,3 @@ export const Contact = () => {
     </section>
   );
 };
-
-///asdsalkdnsaldjhsalndslnhcfdlw;sknv
