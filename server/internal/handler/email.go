@@ -27,7 +27,7 @@ func (h *EmailHandler) SendMail(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "cannot parse JSON"})
 	}
 
-	if request.Name == "" || request.Email == "" || request.Phone == "" || request.MSG == "" {
+	if request.Name == "" || request.Email == "" || request.Phone == "" {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "missing required fields"})
 	}
 
