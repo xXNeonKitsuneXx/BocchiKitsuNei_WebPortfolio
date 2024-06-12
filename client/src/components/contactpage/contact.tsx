@@ -15,23 +15,23 @@ import {
 } from "react-icons/fa";
 
 interface FormData {
-    name: string;
-    phone: string;
-    email: string;
-    message: string;
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
 }
-  
-  export const Contact = () => {
-    const [formData, setFormData] = useState<FormData>({
-        name: "",
-        phone: "",
-        email: "",
-        message: "",
-    });
-      
-    const [errors, setErrors] = useState<Partial<FormData>>({});
-    const [copied, setCopied] = useState(false);
-    const { toast } = useToast();
+
+export const Contact = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
 
   const copyToClipboard = () => {
     const email = "BocchiKitsuNei@gmail.com";
@@ -44,7 +44,7 @@ interface FormData {
   };
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: Partial<FormData> = {};
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     }
@@ -60,27 +60,51 @@ interface FormData {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isValid = validateForm();
     if (isValid) {
-      // Handle form submission here
-      // For example, you can send the form data to your backend
+      try {
+        const response = await fetch("/api/SendMail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          toast({
+            title: "Email sent successfully!",
+          });
+          setFormData({ name: "", phone: "", email: "", message: "" });
+        } else {
+          toast({
+            title: "Failed to send email.",
+            description: "Please try again later.",
+          });
+        }
+      } catch (error) {
+        toast({
+          title: "An error occurred.",
+          description: "Please try again later.",
+        });
+      }
     }
   };
-  
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
-  
 
   return (
     <section className="flex justify-center items-center">
       <Navbar />
       <div className="mt-28 flex-col lg:flex-row flex justify-center items-center">
         <Card className="p-6 mb-4 lg:mr-8 w-96">
-          <CardContent >
+          <CardContent>
             <div className="space-y-8">
               <div className="space-y-2">
                 <h2 className="text-3xl font-semibold">Contact me</h2>
@@ -225,7 +249,8 @@ interface FormData {
                   </div>
                   <Button
                     type="submit"
-                    className="bg-purple-500 text-white hover:bg-purple-800"
+                    className="bg-purple-500 text-white
+                    hover:bg-purple-800"
                   >
                     Submit
                   </Button>
