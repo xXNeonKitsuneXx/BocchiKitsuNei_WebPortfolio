@@ -13,6 +13,7 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
+import axios from "axios";
 
 interface FormData {
   name: string;
@@ -65,20 +66,14 @@ export const Contact = () => {
     const isValid = validateForm();
     if (isValid) {
       try {
-        const response = await fetch("/api/SendMail", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            msg: formData.message,
-          }),
+        const response = await axios.post("/SendMail", {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          msg: formData.message,
         });
-
-        if (response.ok) {
+  
+        if (response.status === 200) {
           toast({
             title: "Email sent successfully!",
           });
@@ -97,7 +92,7 @@ export const Contact = () => {
       }
     }
   };
-
+  
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
