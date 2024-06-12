@@ -20,7 +20,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/Java.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Java.png"
                   alt="Java icon"
                 />
                 <p className="my-4 text-black font-bold">Java</p>
@@ -31,7 +31,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/javascript.png"
+                  src="hhttps://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/javascript.png"
                   alt="JS icon"
                 />
                 <p className="my-4 text-black font-bold">JavaScript</p>
@@ -53,7 +53,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/node.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/node.png"
                   alt="NodeJS icon"
                 />
                 <p className="my-4 text-black font-bold">NodeJS</p>
@@ -64,7 +64,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-8"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/MariaDB.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/MariaDB.png"
                   alt="MariaDB icon"
                 />
                 <p className="my-4 text-black font-bold">MariaDB</p>
@@ -75,7 +75,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/tailwind.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/tailwind.png"
                   alt="Tailwind icon"
                 />
                 <p className="my-4 text-black font-bold">Tailwind</p>
@@ -86,7 +86,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/Typescript.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Typescript.png"
                   alt="TS icon"
                 />
                 <p className="my-4 text-black font-bold">TypeScript</p>
@@ -97,7 +97,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-32 mx-auto mt-6"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/Golang.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Golang.png"
                   alt="GoLang icon"
                 />
                 <p className="my-4 text-black font-bold">Go</p>
@@ -108,7 +108,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-40 mx-auto mt-8"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/fiber.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/fiber.png"
                   alt="Fiber icon"
                 />
                 <p className="my-4 text-black font-bold">Fiber</p>
@@ -119,7 +119,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-48 mx-auto mt-8"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/gorm.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/gorm.png"
                   alt="GORM icon"
                 />
                 <p className="my-4 text-black font-bold">GORM</p>
@@ -130,7 +130,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-32 mx-auto mt-6"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/Docker.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Docker.png"
                   alt="Docker icon"
                 />
                 <p className="my-4 text-black font-bold">Docker</p>
@@ -141,7 +141,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-40 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/firebase.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/firebase.png"
                   alt="Firebase icon"
                 />
                 <p className="my-4 text-black font-bold">Firebase</p>
@@ -152,7 +152,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/redux.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/redux.png"
                   alt="Redux icon"
                 />
                 <p className="my-4 text-black font-bold">Redux</p>
@@ -163,7 +163,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/minio.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/minio.png"
                   alt="Minio icon"
                 />
                 <p className="my-4 text-black font-bold">Minio</p>
@@ -174,7 +174,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/swr.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/swr.png"
                   alt="SWR icon"
                 />
                 <p className="my-4 text-black font-bold">SWR</p>
