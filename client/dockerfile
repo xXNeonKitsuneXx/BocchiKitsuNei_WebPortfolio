@@ -1,0 +1,19 @@
+FROM node as build
+
+WORKDIR /mnt
+
+COPY . .
+
+RUN yarn
+
+RUN yarn build
+
+FROM thistine/simple-http-server as runner
+
+WORKDIR /mnt
+
+COPY --from=build /mnt/dist ./static
+
+ENTRYPOINT [ "/app/serviceapifrontend" ]
+
+EXPOSE 4000
