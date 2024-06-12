@@ -13,7 +13,7 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
-import axios from "axios";
+import { Axios } from "@/AxiosInstance";
 
 interface FormData {
   name: string;
@@ -73,7 +73,7 @@ export const Contact = () => {
           });
 
       try {
-        const response = await axios.post("/api/SendMail", {
+        const response = await Axios.post("/api/SendMail", {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
