@@ -1,6 +1,6 @@
 services:
   portfolioBackend:
-    image: portfolioBackend
+    image: portfoliobackend
     container_name: portfolioBackend
     restart: unless-stopped
     networks:
