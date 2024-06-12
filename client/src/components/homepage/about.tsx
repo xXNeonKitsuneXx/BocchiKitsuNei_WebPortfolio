@@ -2,7 +2,7 @@ import { Button } from "../ui/button";
 
 export const About = () => {
   const handleDownloadResume = () => {
-    window.location.href = "http://199.241.138.79:9000/bocchikitsuneiwebportfolio/Resume_Nithit_Lertcharoensombat.pdf";
+    window.location.href = "https://www.bocchikitsunei.com:9000/bocchikitsuneiwebportfolio/Resume_Nithit_Lertcharoensombat.pdf";
   };
 
   return (

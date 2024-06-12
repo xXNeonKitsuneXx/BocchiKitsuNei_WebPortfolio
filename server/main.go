@@ -81,7 +81,7 @@ func main() {
 	app := fiber.New()
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "https://www.bocchikitsunei.com, http://199.241.138.79:9000, http://localhost:8888",
+		AllowOrigins: "https://www.bocchikitsunei.com, https://minio.bocchikitsunei.com, http://localhost:8888",
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
