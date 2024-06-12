@@ -42,7 +42,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="http://199.241.138.79:9000/bocchikitsuneiwebportfolio/react.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/react.png"
                   alt="React icon"
                 />
                 <p className="my-4 text-black font-bold">React</p>
