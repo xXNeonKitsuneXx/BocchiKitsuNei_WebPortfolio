@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer/footer";
 
 export const ErrorPage = () => {
   return (
-    <div>
+    <>
       <div className="flex justify-center items-center">
         <Navbar />
         <section className="bg-white mt-[120px] my-[50px]">
@@ -30,6 +30,6 @@ export const ErrorPage = () => {
         </section>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
