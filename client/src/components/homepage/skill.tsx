@@ -96,7 +96,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-32 mx-auto mt-6"
+                  className="w-32 mx-auto mt-8"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Golang.png"
                   alt="GoLang icon"
                 />
@@ -130,7 +130,7 @@ export const Skill = () => {
               >
                 <img
                   className="w-32 mx-auto mt-6"
-                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Docker.png"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Docker.jpg"
                   alt="Docker icon"
                 />
                 <p className="my-4 text-black font-bold">Docker</p>
