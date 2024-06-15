@@ -34,6 +34,6 @@ func (s *uploadService) UploadFile(file *multipart.FileHeader) (*string, error) 
 		return nil, err
 	}
 
-	fileURL := fmt.Sprintf("http://199.241.138.79:9000/bocchikitsuneiwebportfolio/%s", fileName)
+	fileURL := fmt.Sprintf("https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/%s", fileName)
 	return &fileURL, err
 }
