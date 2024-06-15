@@ -100,7 +100,7 @@ export const Skill = () => {
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Golang.png"
                   alt="GoLang icon"
                 />
-                <p className="my-4 text-black font-bold">Go</p>
+                <p className="my-4 mt-8 text-black font-bold">Go</p>
               </div>
               <div
                 className="shadow-md shadow-blue-400 bg-[#fff] rounded-2xl w-40 lg:w-60"
@@ -129,7 +129,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-32 mx-auto mt-6"
+                  className="w-20 mx-auto mt-7"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Docker.jpg"
                   alt="Docker icon"
                 />
@@ -140,7 +140,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-40 mx-auto mt-4"
+                  className="w-40 mx-auto mt-10"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/firebase.png"
                   alt="Firebase icon"
                 />
@@ -166,18 +166,18 @@ export const Skill = () => {
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/minio.png"
                   alt="Minio icon"
                 />
-                <p className="my-4 text-black font-bold">Minio</p>
+                <p className="my-3 text-black font-bold">Minio</p>
               </div>
               <div
                 className="shadow-md shadow-gray-600 bg-[#fff] rounded-2xl w-40 lg:w-60"
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-4"
+                  className="w-20 mx-auto mt-12"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/swr.png"
                   alt="SWR icon"
                 />
-                <p className="my-4 text-black font-bold">SWR</p>
+                <p className="my-4 mt-8 text-black font-bold">SWR</p>
               </div>
             </div>
           </div>
