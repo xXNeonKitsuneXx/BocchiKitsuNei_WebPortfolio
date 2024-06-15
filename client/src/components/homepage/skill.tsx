@@ -1,4 +1,5 @@
 export const Skill = () => {
+  
   return (
     <section
       className="w-full h-full bg-black text-white md:text-2xl flex justify-center items-center"
