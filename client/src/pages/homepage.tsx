@@ -9,7 +9,6 @@ export const HomePage = () => {
 
   return (
     <>
-
     <Hero />
     <About />
     <Skill />
