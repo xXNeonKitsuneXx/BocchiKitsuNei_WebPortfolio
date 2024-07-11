@@ -137,17 +137,6 @@ export const Skill = () => {
                 <p className="my-4 text-black font-bold">Docker</p>
               </div>
               <div
-                className="shadow-md shadow-yellow-400 bg-[#fff] rounded-2xl w-40 lg:w-60"
-                data-aos="fade-up"
-              >
-                <img
-                  className="w-40 mx-auto mt-10"
-                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/firebase.png"
-                  alt="Firebase icon"
-                />
-                <p className="my-4 text-black font-bold">Firebase</p>
-              </div>
-              <div
                 className="shadow-md shadow-purple-400 bg-[#fff] rounded-2xl w-40 lg:w-60"
                 data-aos="fade-up"
               >
