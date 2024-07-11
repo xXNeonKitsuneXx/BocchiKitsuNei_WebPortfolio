@@ -63,7 +63,7 @@ func main() {
 	uploadSer := service.NewUploadService(minioClient)
 	storageHandler := handler.NewStorageHandler(uploadSer)
 
-	emailService := service.NewEmailService("BocchiKitsuNei@gmail.com", viper.GetString("g"), "BocchiKitsuNei@gmail.com", "smtp.gmail.com")
+	emailService := service.NewEmailService("BocchiKitsuNei@gmail.com", viper.GetString("m.gk"), "BocchiKitsuNei@gmail.com", "smtp.gmail.com")
 	emailHandler := handler.NewEmailHandler(emailService)
 
 	userRepositoryDB := repository.NewUserRepositoryDB(db)
