@@ -2,8 +2,8 @@ import { Navbar } from "../navbar/navbar";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-full overflow-hidden">
-      <div className="flex items-center justify-center">
+    <section className="relative w-full h-[394px] overflow-hidden">
+      <div className="flex items-center justify-center"> 
         <Navbar />
       </div>
       <div className="relative w-full h-[394px] flex items-end md:items-center">
