@@ -3,7 +3,9 @@ import { Navbar } from "../navbar/navbar";
 export const Hero = () => {
   return (
     <section className="relative w-full min-h-screen">
-      <Navbar />
+      <div className="flex items-center justify-center">
+        <Navbar />
+      </div>
       <div className="relative w-full h-[90vh] flex items-end md:items-center md:pb-0">
         <img
           src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_PR_R_MH_CutOut.png"
