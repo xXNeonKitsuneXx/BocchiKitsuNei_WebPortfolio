@@ -1,5 +1,4 @@
 export const Skill = () => {
-  
   return (
     <section
       className="w-full h-full bg-black text-white md:text-2xl flex justify-center items-center"
@@ -27,15 +26,15 @@ export const Skill = () => {
                 <p className="my-4 text-black font-bold">Java</p>
               </div>
               <div
-                className="shadow-md shadow-yellow-200 bg-[#fff] rounded-2xl w-40 lg:w-60"
+                className="shadow-md shadow-blue-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
                 data-aos="fade-up"
               >
                 <img
                   className="w-20 mx-auto mt-4"
-                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/javascript.png"
-                  alt="JS icon"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Typescript.png"
+                  alt="TypeScript icon"
                 />
-                <p className="my-4 text-black font-bold">JavaScript</p>
+                <p className="my-4 text-black font-bold">TypeScript</p>
               </div>
               <div
                 className="shadow-md shadow-blue-400 bg-[#fff] rounded-2xl w-40 lg:w-60"
@@ -80,17 +79,6 @@ export const Skill = () => {
                   alt="Tailwind icon"
                 />
                 <p className="my-4 text-black font-bold">Tailwind</p>
-              </div>
-              <div
-                className="shadow-md shadow-blue-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
-                data-aos="fade-up"
-              >
-                <img
-                  className="w-20 mx-auto mt-4"
-                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Typescript.png"
-                  alt="TS icon"
-                />
-                <p className="my-4 text-black font-bold">TypeScript</p>
               </div>
               <div
                 className="shadow-md shadow-cyan-200 bg-[#fff] rounded-2xl w-40 lg:w-60"
@@ -168,6 +156,64 @@ export const Skill = () => {
                   alt="SWR icon"
                 />
                 <p className="my-4 mt-8 text-black font-bold">SWR</p>
+              </div>
+
+              <div
+                className="shadow-md shadow-orange-400 bg-[#fff] rounded-2xl w-40 lg:w-60"
+                data-aos="fade-up"
+              >
+                <img
+                  className="w-20 mx-auto mt-12"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Firebase.png"
+                  alt="SWR icon"
+                />
+                <p className="my-4 mt-8 text-black font-bold">Firebase</p>
+              </div>
+              <div
+                className="shadow-md shadow-pink-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
+                data-aos="fade-up"
+              >
+                <img
+                  className="w-20 mx-auto mt-12"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/React_Hook_Form.png"
+                  alt="SWR icon"
+                />
+                <p className="my-4 mt-8 text-black font-bold">
+                  React Hook Form
+                </p>
+              </div>
+              <div
+                className="shadow-md shadow-blue-700 bg-[#fff] rounded-2xl w-40 lg:w-60"
+                data-aos="fade-up"
+              >
+                <img
+                  className="w-20 mx-auto mt-12"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Zod.webp"
+                  alt="SWR icon"
+                />
+                <p className="my-4 mt-8 text-black font-bold">Zod</p>
+              </div>
+              <div
+                className="shadow-md shadow-purple-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
+                data-aos="fade-up"
+              >
+                <img
+                  className="w-20 mx-auto mt-12"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Stripe.webp"
+                  alt="SWR icon"
+                />
+                <p className="my-4 mt-8 text-black font-bold">Stripe</p>
+              </div>
+              <div
+                className="shadow-md shadow-purple-600 bg-[#fff] rounded-2xl w-40 lg:w-60"
+                data-aos="fade-up"
+              >
+                <img
+                  className="w-20 mx-auto mt-12"
+                  src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Dotnet.png"
+                  alt="SWR icon"
+                />
+                <p className="my-4 mt-8 text-black font-bold">Dotnet</p>
               </div>
             </div>
           </div>
