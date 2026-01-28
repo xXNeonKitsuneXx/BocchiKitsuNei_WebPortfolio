@@ -12,7 +12,7 @@ export const Hero = () => {
           alt="Profile photo of BocchiKitsunei"
           className="absolute inset-0 w-full h-full object-cover object-right"
         />
-        <div className="relative z-10 px-8 max-w-3xl">
+        <div className="relative z-10 px-12 max-w-3xl">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-purple-500 leading-tight">
             BocchiKitsunei
           </h1>
