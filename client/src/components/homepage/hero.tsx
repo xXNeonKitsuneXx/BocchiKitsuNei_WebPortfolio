@@ -8,7 +8,7 @@ export const Hero = () => {
       </div>
       <div className="relative w-full h-[394px] flex items-end md:items-center">
         <img
-          src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_Hero.png"
+          src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_Hero.jpg"
           alt="Profile photo of BocchiKitsunei"
           className="absolute inset-0 w-full h-[76vh] object-cover object-right"
         />
