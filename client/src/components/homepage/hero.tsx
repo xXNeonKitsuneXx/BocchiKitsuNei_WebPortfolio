@@ -6,9 +6,9 @@ export const Hero = () => {
       <div className="flex items-center justify-center">
         <Navbar />
       </div>
-      <div className="relative w-full h-[76vh] flex items-end md:items-center">
+      <div className="relative w-full h-[394px] flex items-end md:items-center">
         <img
-          src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_PR_R_MH_CO.png"
+          src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_Hero.png"
           alt="Profile photo of BocchiKitsunei"
           className="absolute inset-0 w-full h-[76vh] object-cover object-right"
         />
