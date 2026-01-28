@@ -6,7 +6,7 @@ export const Hero = () => {
       <div className="flex items-center justify-center">
         <Navbar />
       </div>
-      <div className="relative w-full h-[90vh] flex items-end md:items-center md:pb-0">
+      <div className="relative w-full h-[90vh] flex items-end md:items-center">
         <img
           src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_PR_R_MH_CutOut.png"
           alt="Profile photo of BocchiKitsunei"
@@ -16,7 +16,7 @@ export const Hero = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-purple-500 leading-tight">
             BocchiKitsunei
           </h1>
-          <p className="text-white mt-4 md:text-black text-xl md:text-2xl font-semibold">
+          <p className="text-white md:text-black pb-3 text-xl md:text-2xl font-semibold">
             Nithit Lertcharoensombat{" "}
             <span className="font-extrabold text-purple-500">|</span> Software
             Engineer
