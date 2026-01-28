@@ -10,17 +10,17 @@ export const Navbar = () => {
       <div className="flex justify-center px-4">
         <ul className="flex space-x-8 text-white">
           <li>
-            <Button className="bg-black text-base font-bold hover:bg-gray-500">
+            <Button className="text-white font-medium hover:text-purple-400 transition-colors">
               <a href="/">Home</a>
             </Button>
           </li>
           <li>
-            <Button className="bg-black text-base font-bold hover:bg-gray-500">
+            <Button className="text-white font-medium hover:text-purple-400 transition-colors">
               <a href="/project">Project</a>
             </Button>
           </li>
           <li>
-            <Button className="bg-black text-base font-bold hover:bg-gray-500">
+            <Button className="text-white font-medium hover:text-purple-400 transition-colors">
               <a href="/contact">Contact</a>
             </Button>
           </li>
