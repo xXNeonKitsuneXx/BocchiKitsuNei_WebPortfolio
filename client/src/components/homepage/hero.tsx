@@ -14,7 +14,7 @@ export const Hero = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-purple-500 leading-tight">
             BocchiKitsunei
           </h1>
-          <p className="text-black mt-4 text-xl md:text-2xl font-semibold">
+          <p className="text-white mt-4 md:text-black text-xl md:text-2xl font-semibold">
             Nithit Lertcharoensombat{" "}
             <span className="font-extrabold text-purple-500">|</span> Software
             Engineer

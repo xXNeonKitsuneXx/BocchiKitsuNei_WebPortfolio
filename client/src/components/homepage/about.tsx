@@ -7,7 +7,7 @@ export const About = () => {
   };
 
   return (
-    <section className="w-full py-8 md:py-12 bg-white">
+    <section className="w-full py-6 md:py-12 bg-white">
       <div className="container space-y-12 px-4 md:px-6">
         <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col justify-center space-y-4">
@@ -41,7 +41,7 @@ export const About = () => {
           </div>
           <img
             src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei.jpg"
-            alt="Picture_Nei_Swimmer"
+            alt="Picture_Nei"
             className="w-[550px] h-[310px] md:w-[400px] md:h-[] mx-auto xl:aspect-square aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
             data-aos="flip-left"
             data-aos-duration="400"
