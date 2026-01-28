@@ -194,7 +194,7 @@ export const Skill = () => {
                 <p className="my-4 text-black font-bold">Zod</p>
               </div>
               <div
-                className="shadow-md shadow-purple-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
+                className="shadow-md shadow-indigo-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
                 data-aos="fade-up"
               >
                 <img
