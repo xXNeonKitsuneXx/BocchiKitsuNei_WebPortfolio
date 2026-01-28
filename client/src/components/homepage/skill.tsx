@@ -151,7 +151,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-12"
+                  className="w-20 mx-auto mt-4"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/swr.png"
                   alt="SWR icon"
                 />
@@ -163,7 +163,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-12"
+                  className="w-20 mx-auto mt-4"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Firebase.png"
                   alt="SWR icon"
                 />
@@ -174,7 +174,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-12"
+                  className="w-20 mx-auto mt-4"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/React_Hook_Form.png"
                   alt="SWR icon"
                 />
@@ -187,7 +187,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-12"
+                  className="w-20 mx-auto mt-4"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Zod.webp"
                   alt="SWR icon"
                 />
@@ -198,7 +198,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-12"
+                  className="w-20 mx-auto mt-4"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Stripe.webp"
                   alt="SWR icon"
                 />
@@ -209,7 +209,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-12"
+                  className="w-20 mx-auto mt-4"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Dotnet.png"
                   alt="SWR icon"
                 />
