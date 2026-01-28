@@ -2,7 +2,7 @@ import { Navbar } from "../navbar/navbar";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-[934px] overflow-hidden">
+    <section className="relative w-full min-h-screen overflow-hidden">
       <div className="flex items-center justify-center"> 
         <Navbar />
       </div>
@@ -10,7 +10,7 @@ export const Hero = () => {
         <img
           src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_Hero.jpg"
           alt="Profile photo of BocchiKitsunei"
-          className="absolute inset-0 w-full h-[76vh] object-cover object-right"
+          className="absolute inset-0 w-full h-[934px] object-cover object-right"
         />
         <div className="relative z-10 px-4 md:px-12 max-w-3xl">
           <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-purple-500 leading-tight">
