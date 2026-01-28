@@ -151,7 +151,7 @@ export const Skill = () => {
                 data-aos="fade-up"
               >
                 <img
-                  className="w-20 mx-auto mt-4"
+                  className="w-20 mx-auto mt-12"
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/swr.png"
                   alt="SWR icon"
                 />
@@ -167,7 +167,7 @@ export const Skill = () => {
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Firebase.png"
                   alt="SWR icon"
                 />
-                <p className="my-4 mt-8 text-black font-bold">Firebase</p>
+                <p className="my-4 text-black font-bold">Firebase</p>
               </div>
               <div
                 className="shadow-md shadow-pink-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
@@ -178,7 +178,7 @@ export const Skill = () => {
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/React_Hook_Form.png"
                   alt="SWR icon"
                 />
-                <p className="my-4 mt-8 text-black font-bold">
+                <p className="my-4 text-black font-bold">
                   React Hook Form
                 </p>
               </div>
@@ -191,7 +191,7 @@ export const Skill = () => {
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Zod.webp"
                   alt="SWR icon"
                 />
-                <p className="my-4 mt-8 text-black font-bold">Zod</p>
+                <p className="my-4 text-black font-bold">Zod</p>
               </div>
               <div
                 className="shadow-md shadow-purple-500 bg-[#fff] rounded-2xl w-40 lg:w-60"
@@ -202,7 +202,7 @@ export const Skill = () => {
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Stripe.webp"
                   alt="SWR icon"
                 />
-                <p className="my-4 mt-8 text-black font-bold">Stripe</p>
+                <p className="my-4 text-black font-bold">Stripe</p>
               </div>
               <div
                 className="shadow-md shadow-purple-600 bg-[#fff] rounded-2xl w-40 lg:w-60"
@@ -213,7 +213,7 @@ export const Skill = () => {
                   src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Dotnet.png"
                   alt="SWR icon"
                 />
-                <p className="my-4 mt-8 text-black font-bold">Dotnet</p>
+                <p className="my-4 text-black font-bold">Dotnet</p>
               </div>
             </div>
           </div>
