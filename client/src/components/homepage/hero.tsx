@@ -6,7 +6,7 @@ export const Hero = () => {
       <div className="flex items-center justify-center"> 
         <Navbar />
       </div>
-      <div className="relative w-full h-[634px] md:h-[934px] flex items-end justify-center md:justify-normal md:items-center">
+      <div className="relative w-full h-[634px] md:h-[934px] flex items-end justify-center md:justify-normal md:items-center overflow-hidden">
         <img
           src="https://minio.bocchikitsunei.com/bocchikitsuneiwebportfolio/Nei_Hero.jpg"
           alt="Profile photo of BocchiKitsunei"
