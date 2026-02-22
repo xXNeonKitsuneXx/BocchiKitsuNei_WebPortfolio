@@ -1,19 +1,11 @@
 FROM node as build
-
 WORKDIR /mnt
-
 COPY . .
-
 RUN yarn
-
 RUN yarn build
 
-FROM thistine/simple-http-server as runner
-
-WORKDIR /mnt
-
-COPY --from=build /mnt/dist ./static
-
-ENTRYPOINT [ "/app/serviceapifrontend" ]
-
-EXPOSE 4000
+# Use official nginx which supports arm64
+FROM nginx:alpine as runner
+# Copy built files to nginx's default html serving directory
+COPY --from=build /mnt/dist /usr/share/nginx/html
+EXPOSE 80
