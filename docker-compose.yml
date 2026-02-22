@@ -1,0 +1,27 @@
+services:
+  fontend:
+    container_name: font-end
+    build: 
+     context: ./client
+     dockerfile: Dockerfile
+    ports:
+      - "4000"
+    networks:
+      - backend-network
+    restart: unless-stopped
+
+  backend:
+    container_name: backend
+    build: 
+     context: ./server
+     dockerfile: Dockerfile
+    ports:
+      - "8888"
+    networks:
+      - backend-network
+    restart: unless-stopped
+
+networks:
+  backend-network:
+    driver: bridge
+    name : backend-network
