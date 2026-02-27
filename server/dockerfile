@@ -1,6 +1,22 @@
-FROM golang
+# Build stage
+FROM golang:latest AS builder
 
+WORKDIR /app
+
+# Copy go mod files
+COPY go.mod go.sum ./
+
+# Download dependencies
+RUN go mod download
+
+# Copy source code
 COPY . .
 
-EXPOSE 8888
-ENTRYPOINT [ "go", "run", "main.go" ]
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+
+# Expose port
+EXPOSE 8652
+
+# Run the binary
+ENTRYPOINT ["./main"]

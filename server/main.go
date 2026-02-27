@@ -18,24 +18,25 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 
 	"github.com/spf13/viper"
-	"gorm.io/driver/mysql"
+
 	"gorm.io/gorm"
+	"gorm.io/driver/postgres"
 )
 
 
 func main() {
 	initTimeZone()
 	initConfig()
-	dsn := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v?parseTime=true",
-		viper.GetString("db.username"),
-		viper.GetString("db.password"),
-		viper.GetString("db.host"),
-		viper.GetInt("db.port"),
-		viper.GetString("db.database"),
+	dsn := fmt.Sprintf("host=%v user=%v password=%v dbname=%v port=%v sslmode=disable TimeZone=Asia/Bangkok",
+    	viper.GetString("db.host"),
+    	viper.GetString("db.username"),
+    	viper.GetString("db.password"),
+    	viper.GetString("db.database"),
+    	viper.GetInt("db.port"),
 	)
-	log.Println(dsn)
+log.Println(dsn)
 
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		panic("Failed to connect database")
@@ -51,14 +52,15 @@ func main() {
 		panic("Failed to AutoMigrate Project")
 	}
 
-	minioClient, err := minio.New(viper.GetString("minio.host")+":"+viper.GetString("minio.port"), &minio.Options{
-		Creds:  credentials.NewStaticV4("HDeAly8XddiQTvjjTRfL", "9OtiaCEOL1586uDgPAXNANDndM04ga3oMdGy7kGF", ""),
-		Secure: false,
+	minioEndpoint := fmt.Sprintf("%s:%d", viper.GetString("minio.host"), viper.GetInt("minio.port"))
+	minioClient, err := minio.New(minioEndpoint, &minio.Options{
+		Creds:  credentials.NewStaticV4(viper.GetString("minio.accessKey"), viper.GetString("minio.secretKey"), ""),
+		Secure: false, // change to true if using HTTPS
 	})
 	if err != nil {
 		log.Fatalln(err)
 	}
-	fmt.Println("Minio connected")
+	log.Println("✅ Minio connected")
 
 	uploadSer := service.NewUploadService(minioClient)
 	storageHandler := handler.NewStorageHandler(uploadSer)
