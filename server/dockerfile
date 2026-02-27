@@ -16,7 +16,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
 # Expose port
-EXPOSE 8652
+EXPOSE 8888
 
 # Run the binary
 ENTRYPOINT ["./main"]
